@@ -2,6 +2,12 @@
 
 Simple fix for [Hatsune Miku: Project DIVA Mega Mix+](https://store.steampowered.com/app/1761390/Hatsune_Miku_Project_DIVA_Mega_Mix/) Windows version check.
 
+**Note: Another way that doesn't need patching:**
+
+- Open Regedit
+- Go to `HKEY_CURRENT_USER\Software\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\Layers`
+- Find entry corresponding to Project DIVA and delete it, or modify it so that it doesn't have any Windows version related flags.
+
 ## Method
 
 Hijacking `userenv.dll` and install a hook to `RtlGetVersion` then modify `lpVersionInformation->dwMajorVersion` to `10`.
